@@ -450,10 +450,25 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+    var newSize;
+    var pizzaContainer = document.getElementsByClassName("randomPizzaContainer");
+    // Changes the slider value to a percent width
+      switch(size) {
+        case "1":
+          newSize = 0.25;
+          break;
+        case "2":
+          newSize = 0.3333;
+          break;
+        case "3":
+          newSize = 0.5;
+          break;
+        default:
+          console.log("bug in sizeSwitcher");
+      }
+    
+    for (var i = 0; i < pizzaContainer.length; i++) {
+      pizzaContainer[i].style.width = newSize;
     }
   }
 
