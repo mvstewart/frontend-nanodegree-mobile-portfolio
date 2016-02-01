@@ -468,7 +468,7 @@ var resizePizzas = function(size) {
       }
     
     for (var i = 0; i < pizzaContainer.length; i++) {
-      pizzaContainer[i].style.width = newSize;
+      pizzaContainer[i].style.width = newSize * 100 + '%';
     }
   }
 
